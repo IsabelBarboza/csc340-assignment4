@@ -59,7 +59,7 @@ public class CharacterController {
   }
 
   
-  @GetMapping("/category/{universe}")
+  @GetMapping("/universe/{universe}")
   public ResponseEntity<Collection<Character>> getCharactersByUniverse(@PathVariable String universe) {
     return ResponseEntity.ok(characterService.getCharactersByUniverse(universe));
   }
