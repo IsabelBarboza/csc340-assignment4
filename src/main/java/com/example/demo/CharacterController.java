@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/characters")
@@ -64,8 +64,11 @@ public class CharacterController {
     return ResponseEntity.ok(characterService.getCharactersByUniverse(universe));
   }
 
-  
-  
+  @GetMapping("/abilities/{abilities}")
+  public ResponseEntity<Collection<Character>> searchCharactersByAbilities(@PathVariable String abilities) {
+    return ResponseEntity.ok(characterService.searchCharactersByAbilities(abilities));
+  }
+
   @GetMapping("/search")
   public ResponseEntity<Collection<Character>> searchCharactersByName(@RequestParam(required = false) String name) {
     List<Character> characters;
@@ -95,5 +98,6 @@ public class CharacterController {
     characterService.deleteCharacter(id);
     return ResponseEntity.noContent().build();
   }
+  
 
 }

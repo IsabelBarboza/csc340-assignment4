@@ -14,33 +14,37 @@ public class Character {
   public Long characterId;
 
   @Column(nullable = false)
-  public String name;
+  public String name="";
 
   @Column(nullable = false)
-  public String description;
+  public String description="";
 
-  public String role;
-  public String universe;
-  
+  public String role="";
+  public String universe ="";
+  public String abilities="";
+
+  private String characterPicturePath="";
 
   public Character() {
   }
 
-  public Character(String name, String description, String role, String universe) {
+  public Character(String name, String description, String role, String universe, String abilities) {
     this.name = name;
     this.description = description;
     this.role = role;
     this.universe = universe;
+    this.abilities = abilities;
   }
 
 
 
-  public Character(Long characterId, String name, String description, String role, String universe) {
+  public Character(Long characterId, String name, String description, String role, String universe, String abilities) {
     this.characterId = characterId;
     this.name = name;
     this.description = description;
     this.role = role;
     this.universe = universe;
+    this.abilities = abilities;
   }
 
   public Long getCharacterId() {
@@ -83,6 +87,21 @@ public class Character {
     this.universe = universe;
   }
 
+  public String getAbilities() {
+    return abilities;
+  }
+
+  public void setAbilities(String abilities) {
+    this.abilities = abilities;
+  }
+
+   public void setCharacterPicturePath(String fileName) {
+        this.characterPicturePath = fileName;
+    }
+
+  public String getCharacterPicturePath() {
+        return characterPicturePath;
+    }
 
 }
 

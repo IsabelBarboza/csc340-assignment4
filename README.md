@@ -1,64 +1,66 @@
 # csc340-assignment3
 Name: Isabel Barboza
-Date: 3/6/2026
+Date: 4/7/2026
 
-Assignment #3: CRUD API
+Assignment #4: MVC App
 
-This project is a REST API built with Spring Boot that manages characters from the Dota universe.
+## Description
 
-# SQL on Neon.tech:
- 
-CREATE TABLE "characters" (
-	"character_id"	SERIAL PRIMARY KEY,
-	"name"	TEXT NOT NULL,
-	"description"	TEXT NOT NULL,
-	"role"	TEXT NOT NULL,
-	"universe"	TEXT NOT NULL
-);
+This is a full-stack MVC web application built using Spring Boot and FreeMarker.
+The application allows users to manage a collection of characters by performing full CRUD (Create, Read, Update, Delete) operations.
+Users can also search for characters and upload images associated with each character.
+All data is stored persistently in a database.
 
-INSERT INTO characters (name, role, universe, description) VALUES
-('Invoker', 'Carry', 'Dota', 'Master of spells, versatile mid-laner'),
-('Crystal Maiden', 'Support', 'Dota', 'Provides mana regen and crowd control'),
-('Axe', 'Initiator', 'Dota', 'Tanky hero that starts fights with Berserker'),
-('Juggernaut', 'Carry', 'Dota', 'Agile melee hero with healing and Blade Fury'),
-('Lion', 'Support', 'Dota', 'High burst damage with disables and mana drain'),
-('Phantom Assassin', 'Carry', 'Dota', 'Critical strike assassin with high damage potential'),
-('Bloodseeker', 'Fighter / Carry', 'Dota', 'Fast hunter who tracks wounded enemies'),
-('Morphling', 'Carry / Agility', 'Dota', 'Agility hero who can adapt and replicate enemies'),
-('Mirana', 'Support / Carry', 'Dota', 'Archer hero with moonlight powers and mobility'),
-('Shadow Fiend', 'Carry', 'Dota', 'High damage hero that collects souls to increase attack power');
+## How to Run the Application
 
+Clone the repository
+Open the project in VS Code
+Make sure your database is running
+Run the application using:  DemoApplication.java
+Open your browser and go to:   http://localhost:8080/characters/all
 
-# Installation: 
+## Endpoints:
 
-1. Clone repository
-2. Open project in Vs Code 
-3. Run the Spring Boot application
-4. The API will run on: http://localhost:8080/api/characters/ 
+View All Characters
 
-Api Endpoints on echoAPI:
+GET /characters/all
 
-GET /api/characters/
+View Character Details
 
+GET /characters/{id}
 
-GET /api/characters/2
+Create Character Form
 
+GET /characters/add
 
-POST /api/characters/
+Create Character
 
+POST /characters/add
 
-PUT /api/characters/3
+Update Character Form
 
+GET /characters/update/{id}
 
-DELETE /api/characters/5
+Update Character
 
+POST /characters/update/{id}
 
-GET /api/characters/category/Support
+Delete Character
 
+GET /characters/delete/{id}
 
-GET /api/characters/search?name=Mirana
+Search by Name
+
+GET /characters/search?name=value
+
+Search by Role
+
+GET /characters/search/role?role=value
+
+About Page
+
+GET /characters/about
 
 
 # Demo Video:
-https://uncg-my.sharepoint.com/:v:/g/personal/idbarbozate_uncg_edu/IQBvOSatFhmPTb_a1-fM5cAVASCJ8fip6qobiMb5SsZnYFE?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=M3fax8
 
